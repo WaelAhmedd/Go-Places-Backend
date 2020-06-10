@@ -12,7 +12,7 @@ const userSchema=new mongoose.Schema({
     // check if this is uniqe
     userName:{
         type:String,
-        required:true,
+        required:false,
         trim:true,
         unique:true
     },
@@ -41,7 +41,11 @@ const userSchema=new mongoose.Schema({
     },
     address:{
         type:String,
-        required:true,
+        required:false,
         trim:true
     }
 })
+
+const User = mongoose.model('User', userSchema)
+
+module.exports = User
