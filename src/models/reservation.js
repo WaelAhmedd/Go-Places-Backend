@@ -53,7 +53,7 @@ const reservationSchema=new mongoose.Schema({
     },
     punishmentType:{
         type:String,
-        enum : ['I', 'II'],
+        enum : ['I', 'II','III'],
         default: 'I',
         required:false,
         trim:true
