@@ -31,6 +31,12 @@ const orgnizationSchema=new mongoose.Schema({
         required:true,
         ref:'Account'
          
+    },
+    defaultSystem:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:'System'
+         
     }
 })
 orgnizationSchema.virtual('branches', {

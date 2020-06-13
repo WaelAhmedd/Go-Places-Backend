@@ -30,9 +30,26 @@ const branchSchema=new mongoose.Schema({
         required:true,
         ref:'Account'
          
+    },
+    state:{
+        type:String,
+        enum : ['Low crowded', 'Medium crowded', 'High crowded', 'Full'],
+        default: 'Low crowded',
+        required:false,
+        trim:true
+    },
+    system:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:'System'
+         
     }
 })
-
+branchSchema.virtual('liveTrackingData', {
+    ref: 'LiveTracking',
+    localField: '_id',
+    foreignField: 'branchId'
+})
 const Orgnization = mongoose.model('Branch', branchSchema)
 
 module.exports = Orgnization
